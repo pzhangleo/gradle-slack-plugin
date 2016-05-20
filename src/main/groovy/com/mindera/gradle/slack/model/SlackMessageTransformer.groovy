@@ -24,7 +24,7 @@ class SlackMessageTransformer {
     private static final String COMMIT_HASH  = 'Git Commit Hash'
     private static final String MESSAGE  = 'message'
 
-    static SlackMessage buildSlackMessage(String title, Task task, TaskState state, String taskLog, String message) {
+    static SlackMessage buildSlackMessage(String title, Task task, TaskState state, String taskLog, String taskMessage) {
         Throwable failure = state.getFailure()
         boolean success = failure == null
 
@@ -82,10 +82,10 @@ class SlackMessageTransformer {
         commitField.setShorten(true)
         attachments.addFields(hashField)
 
-        if (message != null) {
+        if (taskMessage != null) {
             SlackField messageField = new SlackField()
             commitField.setTitle(COMMIT_TITLE)
-            commitField.setValue(message)
+            commitField.setValue(taskMessage)
             commitField.setShorten(true)
             attachments.addFields(messageField)
         }
