@@ -22,7 +22,8 @@ class SlackMessageTransformer {
     private static final String AUTHOR_TITLE = 'Git Author'
     private static final String COMMIT_TITLE = 'Git Commit'
     private static final String COMMIT_HASH  = 'Git Commit Hash'
-    private static final String MESSAGE  = 'message'
+    private static final String MESSAGE  = 'Message'
+    private static final String QRCODE  = 'Qrcode'
 
     static SlackMessage buildSlackMessage(String title, Task task, TaskState state, String taskLog, String taskMessage) {
         Throwable failure = state.getFailure()
@@ -88,6 +89,12 @@ class SlackMessageTransformer {
             messageField.setValue(taskMessage)
             messageField.setShorten(false)
             attachments.addFields(messageField)
+
+            SlackField codeField = new SlackField()
+            codeField.setTitle(QRCODE)
+            codeField.setValue("http://pan.baidu.com/share/qrcode?w=150&h=150&url="+message)
+            codeField.setShorten(false)
+            attachments.addFields(codeField)
         }
 
         slackMessage.addAttachments(attachments)
