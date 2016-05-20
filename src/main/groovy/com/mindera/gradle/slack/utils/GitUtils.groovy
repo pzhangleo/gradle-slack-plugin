@@ -21,7 +21,7 @@ class GitUtils {
     }
 
     public static String lastCommitHash() {
-        def commitHash = "git log -n 1 --pretty=format:"%H"".execute().text.trim()
+        def commitHash = "git log -n 1 --pretty=format:%H".execute().text.trim()
         return commitHash
     }
 }
