@@ -92,6 +92,7 @@ class SlackMessageTransformer {
 
             SlackField codeField = new SlackField()
             codeField.setTitle(QRCODE)
+            codeField.addAllowedMarkdown("fields")
             codeField.setValue(String.format("![QRCODE](%s)", "http://pan.baidu.com/share/qrcode?w=150&h=150&url="+taskMessage))
             codeField.setShorten(true)
             attachments.addFields(codeField)
