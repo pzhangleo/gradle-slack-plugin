@@ -84,7 +84,7 @@ class SlackMessageTransformer {
 
         if (taskMessage != null) {
             SlackField messageField = new SlackField()
-            commitField.setTitle(message)
+            commitField.setTitle(MESSAGE)
             commitField.setValue(taskMessage)
             commitField.setShorten(false)
             attachments.addFields(messageField)
