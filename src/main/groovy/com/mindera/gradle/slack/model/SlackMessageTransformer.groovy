@@ -22,8 +22,7 @@ class SlackMessageTransformer {
     private static final String AUTHOR_TITLE = 'Git Author'
     private static final String COMMIT_TITLE = 'Git Commit'
     private static final String COMMIT_HASH  = 'Git Commit Hash'
-    private static final String MESSAGE  = 'M
-    essage'
+    private static final String MESSAGE  = 'message'
 
     static SlackMessage buildSlackMessage(String title, Task task, TaskState state, String taskLog, String message) {
         Throwable failure = state.getFailure()
