@@ -77,16 +77,16 @@ class SlackMessageTransformer {
         attachments.addFields(commitField)
 
         SlackField hashField = new SlackField()
-        commitField.setTitle(COMMIT_TITLE)
+        commitField.setTitle(COMMIT_HASH)
         commitField.setValue(GitUtils.lastCommitHash())
-        commitField.setShorten(true)
+        commitField.setShorten(false)
         attachments.addFields(hashField)
 
         if (taskMessage != null) {
             SlackField messageField = new SlackField()
-            commitField.setTitle(COMMIT_TITLE)
+            commitField.setTitle(message)
             commitField.setValue(taskMessage)
-            commitField.setShorten(true)
+            commitField.setShorten(false)
             attachments.addFields(messageField)
         }
 
