@@ -17,6 +17,7 @@ public class SlackAttachment {
     private String pretext;
     private String color;
     private List<SlackField> fields;
+    private String imageUrl;
 
     public SlackAttachment addFields(SlackField field) {
         if (this.fields == null) {
@@ -91,6 +92,12 @@ public class SlackAttachment {
         return this;
     }
 
+    public SlackAttachment setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+
+        return this;
+    }
+
     public JsonObject toJson() {
         JsonObject data = new JsonObject();
 
@@ -111,6 +118,10 @@ public class SlackAttachment {
 
         if (color != null) {
             data.addProperty("color", color);
+        }
+
+        if (imageUrl != null) {
+            data.addProperty("image_url", imageUrl);
         }
 
         if (fields != null && fields.size() > 0) {
