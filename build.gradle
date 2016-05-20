@@ -13,7 +13,7 @@ repositories {
 }
 
 group = 'com.github.pzhangleo'
-version = '1.0.7'
+// version = '1.0.7'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
