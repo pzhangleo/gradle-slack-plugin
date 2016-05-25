@@ -83,7 +83,7 @@ class SlackMessageTransformer {
         hashField.setShorten(false)
         attachments.addFields(hashField)
 
-        if (taskMessage != null) {
+        if (taskMessage != null && success) {
             SlackField messageField = new SlackField()
             messageField.setTitle(MESSAGE)
             messageField.setValue(taskMessage)
