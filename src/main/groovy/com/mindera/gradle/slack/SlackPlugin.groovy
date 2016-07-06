@@ -65,7 +65,7 @@ class SlackPlugin implements Plugin<Project> {
 
     boolean shouldMonitorTask(Task task) {
         for (dependentTask in mExtension.dependsOnTasks) {
-            if (task.getName().equals(dependentTask)) {
+            if (task.getName().matches(dependentTask.toString())) {
                 return true
             }
         }
